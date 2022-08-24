@@ -6,6 +6,7 @@ class Player {
     this.index = null;
     this.rank = 0;
     this.score = 0;
+    this.fuel = 185;
   }
   getCount() {
     var playerCountRef = database.ref("playerCount");
