@@ -7,6 +7,17 @@ class Player {
     this.rank = 0;
     this.score = 0;
     this.fuel = 185;
+    this.life = 185;
+  }
+  getCarsAtEnd(){
+    database.ref("CarsAtEnd").on("value", (data)=>{
+      this.rank = data.val()
+    });
+  }
+  static updateCarsAtEnd(rank){
+    database.ref("/").update({
+      CarsAtEnd: rank
+    })
   }
   getCount() {
     var playerCountRef = database.ref("playerCount");
