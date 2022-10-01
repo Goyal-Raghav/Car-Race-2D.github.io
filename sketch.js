@@ -1,26 +1,25 @@
 var canvas;
-var backgroundImage,car1Image;
-var bgImg;
-var database;
-var form, player;
-var playerCount, gameState;
-var car1Image, car2Image, track, car1, car2, allPlayers;
-var cars = []; 
-var fuelImage, powerCoinImage, obstacle1Image, obstacle2Image;
-var fuels, powerCoins, obstacles;
+var backgroundImage, car1_img, car2_img, track;
+var fuelImage, powerCoinImage, lifeImage;
+var obstacle1Image, obstacle2Image;
+var database, gameState;
+var form, player, playerCount;
+var allPlayers, car1, car2, fuels, powerCoins, obstacles;
+var cars = [];
+var blastImage;
 
 function preload() {
   backgroundImage = loadImage("./assets/background.png");
-  car1Image = loadImage("./assets/car1.png");
-  car2Image = loadImage("./assets/car2.png");
-  track = loadImage("./assets/track.jpg");
+  car1_img = loadImage("../assets/car1.png");
+  car2_img = loadImage("../assets/car2.png");
+  track = loadImage("../assets/track.jpg");
   fuelImage = loadImage("./assets/fuel.png");
   powerCoinImage = loadImage("./assets/goldCoin.png");
   obstacle1Image = loadImage("./assets/obstacle1.png");
-  lifeImage = loadImage("./assets/life.png");
   obstacle2Image = loadImage("./assets/obstacle2.png");
+  lifeImage = loadImage("./assets/life.png");
+  blastImage = loadImage("./assets/blast.png");
 }
-
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
@@ -32,11 +31,12 @@ function setup() {
 
 function draw() {
   background(backgroundImage);
-  if (playerCount == 2) {
+  if (playerCount === 2) {
     game.update(1);
   }
-  if(gameState == 1){
-    game.play()
+
+  if (gameState === 1) {
+    game.play();
   }
 }
 
